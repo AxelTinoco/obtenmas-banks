@@ -1,15 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ListItemBank from './ListItemBank';
 import {useSelector} from 'react-redux';
+import LoaderData from './shared/LoaderData';
 
 const ListBanks = () => {
 
   const banks = useSelector((state) => state.initial.content);
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
     let isMounted = true;
-    () => (isMounted = false);
+
+    if (isMounted) {
+      setLoading(false);
+    }
+
+    return () => (isMounted = false);
   }, [banks]);
 
   const _renderListItem = (data) =>
@@ -24,9 +31,15 @@ const ListBanks = () => {
   ));
 
   return (
-    <ul>
-      {_renderListItem(banks)}
-    </ul>
+    <div className='grid grid-cols-12 gap-4'>
+      {
+        loading
+        ?
+        <LoaderData/>
+        :
+        _renderListItem(banks)
+      }
+    </div>
   )
 }
 
