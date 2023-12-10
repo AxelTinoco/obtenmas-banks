@@ -1,9 +1,9 @@
 import React from 'react'
 
-const RootLayout = () => {
+const RootLayout = ({children}) => {
   return (
     <main>
-      
+      {children}
     </main>
   )
 }

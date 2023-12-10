@@ -1,7 +1,8 @@
-import React from 'react'
+export default function Dashboard() {
 
-export const Dashboard = () => {
   return (
-    <div>Inicio</div>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-black">
+      
+    </main>
   )
 }
