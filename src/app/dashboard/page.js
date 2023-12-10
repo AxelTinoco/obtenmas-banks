@@ -1,15 +1,27 @@
 'use client'
-
+import { useEffect, useState } from "react";
 import ListBanks from "@/components/ListBanks";
 import UseFetchGetListBanks from "@/components/hooks/useFetchDataListBank";
 import {useSelector,useDispatch} from 'react-redux';
 import { updateContent } from "../../redux/features/initialSlice";
+import LoaderData from "@/components/shared/LoaderData";
 
 export default function Dashboard() {
-
+  
   const name = useSelector((state) => state.initial.userName);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  console.log(name)
+
+  useEffect(() => {
+    let isMounted = true;
+
+    if (isMounted) {
+      setLoading(false);
+    }
+
+    return () => (isMounted = false);
+  }, [name]);
+
   const handleGetListBanks = async () => {
     try {
       const data = await UseFetchGetListBanks();
@@ -25,8 +37,14 @@ export default function Dashboard() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-black">
-      <div className="border border-gray-500 w-11/12 lg:h-1/2 lg:w-1/3 z-50 relative backdrop-blur-md p-6">
-       <h2 className="text-white">Bienvenido {name}</h2>
+      <div className="w-11/12 lg:h-4/5 lg:w-4/5 z-50 relative backdrop-blur-md p-6">
+       {
+        loading 
+        ?
+        <LoaderData/>
+        :
+        <h2 className="text-white">Bienvenido {name}</h2>
+       }
        <button 
         className="p-2 w-full text-white"
         onClick={handleGetListBanks}
@@ -36,7 +54,7 @@ export default function Dashboard() {
 
        <hr/>
 
-       <div className="">
+       <div className="flex w-full">
           <ListBanks/>
        </div>
       </div>
