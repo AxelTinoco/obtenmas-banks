@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux"
 import * as Yup from "yup";
 import Message from "../Form/Message";
 import { useRouter } from "next/navigation";
-import { updateNameUser } from "../../redux/features/initialSlice";
+import { updateUserName } from "../../redux/features/initialSlice";
 import ButtonForm from "../Form/ButtonForm";
 
 const RegisterUser = () => {
@@ -24,7 +24,7 @@ const RegisterUser = () => {
   };
 
   const onSubmit = (values) => {
-    dispatch(updateNameUser(values.username));
+    dispatch(updateUserName(values.username));
     router.push("/dashboard")
   }
 

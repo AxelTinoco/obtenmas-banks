@@ -2,19 +2,19 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-  nameUser: "",
-  contenido: []
+  userName: "",
+  content: []
 };
 
 export const initialSlice = createSlice({
   name: "initial",
   initialState,
   reducers: {
-    updateNameUser: (state, action) => {
-      state.nameUser = action.payload;
+    updateUserName: (state, action) => {
+      state.userName = action.payload;
     },
-    updateContenido:(state ,action) => {
-      state.contenido = action.payload
+    updateContent:(state ,action) => {
+      state.content = action.payload
     },
     cleanInitialState:(state) => {
       state.idProceso = ""
@@ -25,15 +25,15 @@ export const initialSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-  updateNameUser,
-  updateContenido,
+  updateUserName,
+  updateContent,
   cleanInitialState
 } = initialSlice.actions;
 
 
 
-export const selectNameUser = (state) => state.initial.nameUser;
-export const selectContenido = (state) => state.initial.contenido;
+export const selectUserName = (state) => state.initial.userName;
+export const selectContent = (state) => state.initial.content;
 
 
 export default initialSlice.reducer;
