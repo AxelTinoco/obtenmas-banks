@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 
 const ListItemBank = ({bankName,imageBank,age,description}) => {
-  console.log(imageBank)
 
   useEffect(() => {
     let isMounted = true;
