@@ -46,7 +46,7 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-black">
+    <main className="flex min-h-screen flex-col items-center justify-center p-0 md:p-24 bg-black">
       <div className="w-11/12 lg:h-4/5 lg:w-4/5 z-50 relative backdrop-blur-md p-6">
         {
           loading
