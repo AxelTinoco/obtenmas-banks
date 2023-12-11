@@ -9,13 +9,11 @@ import LoaderData from "@/components/shared/LoaderData";
 export default function Dashboard() {
 
   const name = useSelector((state) => state.initial.userName);
-  const content = useSelector((state) => state.initial.content);
   const [contentStorage, setContentStorage] = useState({});
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const storedResponse = localStorage.getItem(`user_name`);
     const storedDataContent = localStorage.getItem(`data_content`);
 
     if (storedDataContent) {
