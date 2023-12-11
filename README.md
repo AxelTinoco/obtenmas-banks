@@ -63,8 +63,7 @@ El diagrama cambiará conforme este la comunicación del backend para el desarro
 ```mermaid
 graph LR
 A[Carga] --> B(API) --
-B --> C{IA}
-C --> D[Dashboard]
+B --> D[Dashboard]
 
 ```
 
